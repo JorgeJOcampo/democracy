@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-const Checkbox = ({ label, isSelected, onCheckboxChange }) => {
+const Checkbox = ({ label, isSelected, onCheckboxChange, disabled }) => {
   // const [isSelected, setIsSelected] = useState(false);
   // const toggleSelect = () => setIsSelected(!isSelected);
   return (
@@ -12,6 +12,7 @@ const Checkbox = ({ label, isSelected, onCheckboxChange }) => {
           checked={isSelected}
           onChange={onCheckboxChange}
           className="form-check-input"
+          disabled={disabled}
         />
         {label}
       </label>
