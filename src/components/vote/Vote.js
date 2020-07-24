@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useRecoilValue } from 'recoil';
 import VoteList from 'components/VoteList';
 import { votesState } from '../../state/voteState';
@@ -7,6 +7,7 @@ import { useSession } from '../../hooks/userHooks';
 
 export default () => {
   const [user, { signOut }] = useSession();
+  const [voted, setVoted] = useState(false);
   const votes = useRecoilValue(votesState);
   const options = [
     { id: 0, label: 'op0' },
@@ -18,9 +19,12 @@ export default () => {
   ];
 
   const submit = () =>
-    database.collection('votes').add({ user: user.email, votes });
+    database.collection('votes').add({ user: user.email, votes }) &&
+    setVoted(true);
 
-  return (
+  return voted ? (
+    <div>Ya votaste!</div>
+  ) : (
     <div>
       <div>user:{user.displayName}</div>
       <button type="button" onClick={signOut}>
@@ -28,7 +32,7 @@ export default () => {
       </button>
       <div>Votación</div>
       <VoteList options={options} />
-      <button type="button" onClick={submit}>
+      <button type="button" onClick={submit} disabled={voted}>
         Submit
       </button>
     </div>
