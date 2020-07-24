@@ -28,7 +28,9 @@ module.exports = {
         "ignoreRegExpLiterals": true
       }
     ],
-    "react/prop-types": 0
+    "react/prop-types": 0,
+    "react/prop-types": "off",
+    "import/prefer-default-export": 0
   },
   "settings": {
     "import/resolver": {

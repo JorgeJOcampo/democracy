@@ -4,6 +4,12 @@ import Checkbox from 'components/Checkbox';
 const MAX_SELECTED = 3;
 
 export default ({ options }) => {
+  // const onChange = (callback) =>
+  //   database
+  //     .collection('votes')
+  //     .onSnapshot((snapshot) =>
+  //       callback(snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })))
+  //     );
   const [mapOptions, setMapOptions] = useState(
     options.map(({ id, label }) => ({ id, label, isSelected: false }))
   );

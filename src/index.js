@@ -1,13 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+
+import { Provider as SessionProvider } from './context/firebaseContext';
+// import { Provider as TodosProvider } from './todos/context';
+
 import App from './App';
+
 import * as serviceWorker from './serviceWorker';
 
+import './index.css';
+
 ReactDOM.render(
-  <React.StrictMode>
+  <SessionProvider>
     <App />
-  </React.StrictMode>,
+  </SessionProvider>,
   document.getElementById('root')
 );
 
