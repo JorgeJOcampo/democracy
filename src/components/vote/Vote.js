@@ -1,10 +1,13 @@
 import React from 'react';
+import { useRecoilValue } from 'recoil';
 import VoteList from 'components/VoteList';
+import { votesState } from '../../state/voteState';
 import { database } from '../../firebase';
 import { useSession } from '../../hooks/userHooks';
 
 export default () => {
   const [user, { signOut }] = useSession();
+  const votes = useRecoilValue(votesState);
   const options = [
     { id: 0, label: 'op0' },
     { id: 1, label: 'op1' },
@@ -13,11 +16,9 @@ export default () => {
     { id: 4, label: 'op4' },
     { id: 5, label: 'op5' }
   ];
-  const fakeVote = {
-    user: user.email,
-    votes: ['op1', 'op2', 'op3']
-  };
-  const submit = (votes) => database.collection('votes').add(votes);
+
+  const submit = () =>
+    database.collection('votes').add({ user: user.email, votes });
 
   return (
     <div>
@@ -27,7 +28,7 @@ export default () => {
       </button>
       <div>Votación</div>
       <VoteList options={options} />
-      <button type="button" onClick={(votes) => submit(fakeVote)}>
+      <button type="button" onClick={submit}>
         Submit
       </button>
     </div>
