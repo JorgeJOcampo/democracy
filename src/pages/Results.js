@@ -13,7 +13,7 @@ const VoteList = ({ votes }) => {
 export default () => {
   const [votes, setVotes] = useState([]);
   useEffect(() => {
-    voteService.getVotes().then((result) => setVotes(result));
+    voteService.onChange((result) => setVotes(result));
   }, []);
   const voteList = votes
     .reduce((res, { votes }) => {

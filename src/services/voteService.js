@@ -16,5 +16,11 @@ export default {
       .then((snapshot) => snapshot.docs.map((doc) => doc.data()))
       .catch((err) => {
         console.log('Error getting documents', err);
-      })
+      }),
+  onChange: (callback) =>
+    database
+      .collection('votes')
+      .onSnapshot((snapshot) =>
+        callback(snapshot.docs.map((doc) => doc.data()))
+      )
 };
