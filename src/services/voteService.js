@@ -30,7 +30,6 @@ export default {
     { id: 5, label: 'op5', total: 0 }
   ],
   formatOptions: (options) =>
-    console.log('options', options) ||
     options.map((label, id) => ({ id, label, total: 0 })),
   createVote: (vote) => database.collection('votes').add(vote),
   getVotes: () =>
