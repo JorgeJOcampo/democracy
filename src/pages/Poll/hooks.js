@@ -25,7 +25,6 @@ export const usePoll = () => {
   useEffect(() => {
     setLoading(true);
     voteService.getPoll(id).then((poll) => {
-      console.log('usePoll -> poll', poll);
       setOptions(voteService.formatOptions(poll.options));
       setPollName(poll.name);
       setMaxSelectable(poll.max_selectable);
