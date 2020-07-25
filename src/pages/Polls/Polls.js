@@ -9,7 +9,7 @@ export default () => {
   });
   return (
     <div>
-      <div>Votaciones</div>
+      <div>Tus Votaciones</div>
       <PollList polls={polls} />
     </div>
   );

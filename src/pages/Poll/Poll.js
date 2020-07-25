@@ -21,7 +21,7 @@ export default () => {
       <div>{pollName}</div>
       <VoteList options={options} maxSelectable={maxSelectable} />
       <button type="button" onClick={submit} disabled={voted}>
-        Submit
+        Votar!
       </button>
     </div>
   );

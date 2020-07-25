@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import { ThemeProvider } from 'styled-components';
 import { Provider as SessionProvider } from './context/firebaseContext';
-// import { Provider as TodosProvider } from './todos/context';
+import { GlobalStyle, theme } from './styles';
 
 import App from './App';
 
@@ -11,9 +12,12 @@ import * as serviceWorker from './serviceWorker';
 import './index.css';
 
 ReactDOM.render(
-  <SessionProvider>
-    <App />
-  </SessionProvider>,
+  <ThemeProvider theme={theme}>
+    <GlobalStyle />
+    <SessionProvider>
+      <App />
+    </SessionProvider>
+  </ThemeProvider>,
   document.getElementById('root')
 );
 

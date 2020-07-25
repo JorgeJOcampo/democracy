@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import Checkbox from 'components/Checkbox';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
-import { votesState } from '../state/voteState';
+import { votesState } from 'state/voteState';
+import Checkbox from 'components/Checkbox';
 
 export default ({ options, maxSelectable }) => {
   const votes = useRecoilValue(votesState);
