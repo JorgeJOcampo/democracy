@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Poll from 'components/Poll';
+import Poll from 'pages/Poll';
 import Results from './pages/Results';
 import CreatePoll from './pages/CreatePoll';
 import Polls from './pages/Polls';
