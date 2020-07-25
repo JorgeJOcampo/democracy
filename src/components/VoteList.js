@@ -3,9 +3,7 @@ import Checkbox from 'components/Checkbox';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { votesState } from '../state/voteState';
 
-const MAX_SELECTED = 2;
-
-export default ({ options }) => {
+export default ({ options, maxSelectable }) => {
   const votes = useRecoilValue(votesState);
   const setVotes = useSetRecoilState(votesState);
   const [mapOptions, setMapOptions] = useState(
@@ -37,7 +35,7 @@ export default ({ options }) => {
       key={id}
       label={label}
       isSelected={isSelected}
-      disabled={!isSelected && selectedQuantity >= MAX_SELECTED}
+      disabled={!isSelected && selectedQuantity >= maxSelectable}
       onCheckboxChange={() => toggleSelect(label)}
     />
   ));

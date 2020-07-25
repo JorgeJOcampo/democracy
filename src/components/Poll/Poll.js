@@ -11,6 +11,7 @@ export default () => {
   const [user, { signOut }] = useSession();
   const [voted, setVoted] = useState(false);
   const [pollName, setPollName] = useState('Votación');
+  const [maxSelectable, setMaxSelectable] = useState();
   const [options, setOptions] = useState([]);
   const votes = useRecoilValue(votesState);
 
@@ -25,6 +26,7 @@ export default () => {
     voteService.getPoll(id).then((poll) => {
       setOptions(voteService.formatOptions(poll.options));
       setPollName(poll.name);
+      setMaxSelectable(poll.max_selectable);
     });
   }, []);
 
@@ -43,7 +45,7 @@ export default () => {
         Logout
       </button>
       <div>{pollName}</div>
-      <VoteList options={options} />
+      <VoteList options={options} maxSelectable={maxSelectable} />
       <button type="button" onClick={submit} disabled={voted}>
         Submit
       </button>
