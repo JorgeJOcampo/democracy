@@ -4,19 +4,12 @@ import VoteList from 'components/VoteList';
 import { votesState } from '../../state/voteState';
 import { database } from '../../firebase';
 import { useSession } from '../../hooks/userHooks';
+import voteService from '../../services/voteService';
 
 export default () => {
   const [user, { signOut }] = useSession();
   const [voted, setVoted] = useState(false);
   const votes = useRecoilValue(votesState);
-  const options = [
-    { id: 0, label: 'op0' },
-    { id: 1, label: 'op1' },
-    { id: 2, label: 'op2' },
-    { id: 3, label: 'op3' },
-    { id: 4, label: 'op4' },
-    { id: 5, label: 'op5' }
-  ];
 
   const submit = () =>
     database.collection('votes').add({ user: user.email, votes }) &&
@@ -31,7 +24,7 @@ export default () => {
         Logout
       </button>
       <div>Votación</div>
-      <VoteList options={options} />
+      <VoteList options={voteService.getOptions()} />
       <button type="button" onClick={submit} disabled={voted}>
         Submit
       </button>
