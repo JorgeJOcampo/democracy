@@ -1,12 +1,19 @@
 export const formatOptions = (options) =>
-  options.map((label, id) => ({ id, label, total: 0 }));
+  options.map(({ id, text }) => ({ id, label: text, total: 0 }));
 
-export const getResults = (poll, votes) =>
-  poll
-    ? votes
+export const getResults = (poll, allVotes) =>
+  console.log('vote sss', allVotes) || poll
+    ? allVotes
         .reduce((res, { votes }) => {
+          console.log('poll sss', poll);
+
+          console.log('votes sss', votes);
           votes.forEach((label) => {
-            const currentVote = res.find((vote) => vote.label === label);
+            console.log('label', label);
+            const currentVote = res.find(
+              (vote) => console.log('vote', vote) || vote.label === label
+            );
+            console.log('currentVote', currentVote);
             res = [
               ...res.slice(0, res.indexOf(currentVote)),
               {

@@ -32,9 +32,11 @@ export default () => {
     return <div>Loading...</div>;
   }
 
-  return voted ? (
-    <div>Ya votaste!</div>
-  ) : (
+  if (voted) {
+    return <div>Ya votaste!</div>;
+  }
+
+  return (
     <div>
       <div>user:{user.displayName}</div>
       <button type="button" onClick={signOut}>
