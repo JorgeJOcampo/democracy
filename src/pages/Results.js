@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import voteService from '../services/voteService';
 
 const VoteList = ({ votes }) => {
@@ -11,10 +12,19 @@ const VoteList = ({ votes }) => {
 };
 
 export default () => {
+  const [poll, setPoll] = useState();
   const [votes, setVotes] = useState([]);
+  const { id } = useParams();
+
   useEffect(() => {
-    voteService.onChange((result) => setVotes(result));
+    voteService.getPoll(id).then((result) => setPoll(result));
+    voteService.onChange(id, (results) => setVotes(results));
   }, []);
+
+  if (!poll) {
+    return <div>Loading...</div>;
+  }
+
   const voteList = votes
     .reduce((res, { votes }) => {
       votes.forEach((label) => {
@@ -29,7 +39,7 @@ export default () => {
         ];
       });
       return res;
-    }, voteService.getOptions())
+    }, voteService.formatOptions(poll.options))
     .sort((a, b) => b.total - a.total);
 
   return (

@@ -3,7 +3,6 @@ import { useRecoilValue } from 'recoil';
 import VoteList from 'components/VoteList';
 import { useParams } from 'react-router-dom';
 import { votesState } from '../../state/voteState';
-import { database } from '../../firebase';
 import { useSession } from '../../hooks/userHooks';
 import voteService from '../../services/voteService';
 
@@ -16,8 +15,11 @@ export default () => {
   const votes = useRecoilValue(votesState);
 
   const submit = () =>
-    database.collection('votes').add({ user: user.email, votes }) &&
-    setVoted(true);
+    voteService.createVote({
+      user: { id: user.uid, email: user.email, name: user.displayName },
+      poll_id: id,
+      votes
+    }) && setVoted(true);
 
   useEffect(() => {
     voteService.getPoll(id).then((poll) => {

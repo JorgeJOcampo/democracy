@@ -1,7 +1,7 @@
 import { database } from '../firebase';
 
 export default {
-  createVote: (doc) => database.collection('polls').doc().set(doc),
+  createPoll: (doc) => database.collection('polls').doc().set(doc),
   getPolls: () =>
     database
       .collection('polls')
@@ -30,7 +30,9 @@ export default {
     { id: 5, label: 'op5', total: 0 }
   ],
   formatOptions: (options) =>
+    console.log('options', options) ||
     options.map((label, id) => ({ id, label, total: 0 })),
+  createVote: (vote) => database.collection('votes').add(vote),
   getVotes: () =>
     database
       .collection('votes')
@@ -39,10 +41,11 @@ export default {
       .catch((err) => {
         console.log('Error getting documents', err);
       }),
-  onChange: (callback) =>
+  onChange: (id, callback) =>
     database
       .collection('votes')
+      .where('poll_id', '==', id)
       .onSnapshot((snapshot) =>
-        callback(snapshot.docs.map((doc) => doc.data()))
+        callback(snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })))
       )
 };

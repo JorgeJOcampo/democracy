@@ -10,8 +10,8 @@ export default () => {
   const maxSelectable = useRef();
   const newOption = () =>
     setOptions([...options, `Opción ${options.length + 1}`]);
-  const createVote = () =>
-    voteService.createVote({
+  const createPoll = () =>
+    voteService.createPoll({
       name: pollNameRef.current.value,
       created_by: { uid: user.uid, name: user.displayName, email: user.email },
       max_selectable: +maxSelectable.current.value,
@@ -34,7 +34,7 @@ export default () => {
         Nueva opción
       </button>
       <br />
-      <button type="button" onClick={createVote}>
+      <button type="button" onClick={createPoll}>
         Crear votación
       </button>
     </div>
