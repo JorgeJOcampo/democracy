@@ -5,7 +5,6 @@ import { votesState } from '../state/voteState';
 
 export default ({ options, maxSelectable }) => {
   const votes = useRecoilValue(votesState);
-  console.log('votes', votes);
   const setVotes = useSetRecoilState(votesState);
   const [mapOptions, setMapOptions] = useState(
     options.map(({ id, label }) => ({ id, label, isSelected: false }))
@@ -25,7 +24,6 @@ export default ({ options, maxSelectable }) => {
     const currentCheckbox = mapOptions.find(
       (checkbox) => checkbox.label === label
     );
-    console.log('toggleSelect -> currentCheckbox', currentCheckbox);
     setMapOptions([
       ...mapOptions.slice(0, mapOptions.indexOf(currentCheckbox)),
       { ...currentCheckbox, isSelected: !currentCheckbox.isSelected },
