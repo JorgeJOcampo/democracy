@@ -28,7 +28,7 @@ export default () => {
       setPollName(poll.name);
       setMaxSelectable(poll.max_selectable);
     });
-  }, []);
+  }, [id]);
 
   if (!options.length) {
     return <div>Loading...</div>;
