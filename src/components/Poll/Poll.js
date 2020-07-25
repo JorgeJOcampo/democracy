@@ -1,36 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import { useRecoilValue } from 'recoil';
+import React from 'react';
 import VoteList from 'components/VoteList';
-import { useParams } from 'react-router-dom';
-import { votesState } from '../../state/voteState';
-import { useSession } from '../../hooks/userHooks';
-import voteService from '../../services/voteService';
+import { usePoll } from './hooks';
 
 export default () => {
-  const { id } = useParams();
-  const [user, { signOut }] = useSession();
-  const [voted, setVoted] = useState(false);
-  const [pollName, setPollName] = useState('Votación');
-  const [maxSelectable, setMaxSelectable] = useState();
-  const [options, setOptions] = useState([]);
-  const votes = useRecoilValue(votesState);
+  const [
+    { options, voted, pollName, maxSelectable, loading },
+    submit
+  ] = usePoll();
 
-  const submit = () =>
-    voteService.createVote({
-      user: { id: user.uid, email: user.email, name: user.displayName },
-      poll_id: id,
-      votes
-    }) && setVoted(true);
-
-  useEffect(() => {
-    voteService.getPoll(id).then((poll) => {
-      setOptions(voteService.formatOptions(poll.options));
-      setPollName(poll.name);
-      setMaxSelectable(poll.max_selectable);
-    });
-  }, [id]);
-
-  if (!options.length) {
+  if (loading) {
     return <div>Loading...</div>;
   }
 
@@ -40,10 +18,6 @@ export default () => {
 
   return (
     <div>
-      <div>user:{user.displayName}</div>
-      <button type="button" onClick={signOut}>
-        Logout
-      </button>
       <div>{pollName}</div>
       <VoteList options={options} maxSelectable={maxSelectable} />
       <button type="button" onClick={submit} disabled={voted}>
