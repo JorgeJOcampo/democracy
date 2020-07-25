@@ -1,24 +1,28 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Vote from 'components/vote';
+import Poll from 'components/Poll';
 import Results from './pages/Results';
-import CreateVote from './pages/CreateVote';
+import CreatePoll from './pages/CreatePoll';
+import Polls from './pages/Polls';
 
 export default () => (
   <Router>
     <div>
       <Switch>
-        <Route path="/results">
+        <Route path="/results/:id">
           <Results />
         </Route>
-        <Route path="/create-vote">
-          <CreateVote />
+        <Route path="/polls/:id">
+          <Poll />
         </Route>
-        <Route path="/vote">
-          <Vote />
+        <Route path="/polls">
+          <Polls />
+        </Route>
+        <Route path="/create-poll">
+          <CreatePoll />
         </Route>
         <Route path="/">
-          <Vote />
+          <Polls />
         </Route>
       </Switch>
     </div>
