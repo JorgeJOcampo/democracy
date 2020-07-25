@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
-import voteService from '../services/voteService';
-import { useSession } from '../hooks/userHooks';
+import voteService from 'services/voteService';
+import { useSession } from 'hooks/userHooks';
+import VoteCreated from './VoteCreated';
 
 export default () => {
   const [user] = useSession();
@@ -20,7 +21,7 @@ export default () => {
   const optionList = options.map((option) => <div key={option}>{option}</div>);
 
   if (voteCreated) {
-    return <div>Votación creada</div>;
+    return <VoteCreated />;
   }
 
   return (
