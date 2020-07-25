@@ -1,6 +1,7 @@
 import { database } from '../firebase';
 
 export default {
+  createVote: (doc) => database.collection('poll').doc().set(doc),
   getOptions: () => [
     { id: 0, label: 'op0', total: 0 },
     { id: 1, label: 'op1', total: 0 },
