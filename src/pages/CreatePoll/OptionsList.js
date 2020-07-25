@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { useRecoilState } from 'recoil';
 import Option from './Option';
 import { pollOptionsState } from './state';
 
 export default () => {
   const [inputValue, setInputValue] = useState('');
-  const values = useRecoilValue(pollOptionsState);
-  const setValues = useSetRecoilState(pollOptionsState);
+  const [values, setValues] = useRecoilState(pollOptionsState);
 
   const onChange = ({ target: { value } }) => setInputValue(value);
 

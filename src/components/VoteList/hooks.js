@@ -1,10 +1,9 @@
 import { useState } from 'react';
-import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { useRecoilState } from 'recoil';
 import { votesState } from 'state/voteState';
 
 const useVotes = () => {
-  const votes = useRecoilValue(votesState);
-  const setVotes = useSetRecoilState(votesState);
+  const [votes, setVotes] = useRecoilState(votesState);
 
   const addVote = (vote) => setVotes([...votes, vote]);
 
