@@ -12,10 +12,6 @@ export default () => {
     return (
         <>
         <Header />
-        {/* <img
-          src="https://res.cloudinary.com/teapig/image/upload/v1595701200/wevote/logo_blanco.png"
-          alt="logo"
-        /> */}
         <Content>
         <Routes />
         <UserInfo>
