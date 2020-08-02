@@ -20,7 +20,9 @@ export default function App() {
     </RecoilRoot>
   ) : (
     <RecoilRoot>
-      <Routes />
+      <Router>
+        <Routes />
+      </Router>
     </RecoilRoot>
   );
 }
