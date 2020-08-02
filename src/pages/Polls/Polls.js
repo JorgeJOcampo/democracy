@@ -8,8 +8,8 @@ export default () => {
     voteService.getPolls().then((results) => setPolls(results));
   });
   return (
-    <div>
-      <div>Tus Votaciones</div>
+    <div className="polls-container">
+      <div className="title">Tus Votaciones</div>
       <PollList polls={polls} />
     </div>
   );

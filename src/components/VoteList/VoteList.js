@@ -17,7 +17,6 @@ export default ({ options, maxSelectable }) => {
 
   return (
     <div>
-      <div>Selected: {selectedQuantity}</div>
       {list}
     </div>
   );
