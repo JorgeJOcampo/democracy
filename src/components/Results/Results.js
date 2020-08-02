@@ -1,12 +1,9 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
 import ResultsList from 'components/ResultsList';
 import { useResults } from './hooks';
 import { Results } from './styles';
 
 export default ({ id }) => {
-  // const { id } = useParams();
-
   const results = useResults(id);
 
   if (!results) {
