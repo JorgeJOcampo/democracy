@@ -1,9 +1,13 @@
 import React from 'react';
 import VoteList from 'components/VoteList';
 import { isBrowser } from 'react-device-detect';
+import Results from 'pages/Results';
+import { useParams } from 'react-router-dom';
 import { usePoll } from './hooks';
 
 export default () => {
+  const { id } = useParams();
+
   const [
     { options, voted, pollName, maxSelectable, loading },
     submit
@@ -21,14 +25,7 @@ export default () => {
   }
 
   if (voted) {
-    return (
-      <div className="pollContent">
-        <div className="pollContainer">
-          <div className="img" />
-          <div className="success">Ya votaste!</div>
-        </div>
-      </div>
-    );
+    return <Results id={id} />;
   }
 
   return (
