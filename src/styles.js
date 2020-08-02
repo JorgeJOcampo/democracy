@@ -63,29 +63,10 @@ export const BottomText = styled.p`
   color: #cce6ed;
 `;
 
-export const Sidebar = styled.div`
-  width: 312px;
-  background: linear-gradient(
-    12.47deg,
-    #91c3d1 -1.26%,
-    #91c3d1 4.02%,
-    #0097bb 26.17%,
-    #1d4282 64.67%,
-    #331d75 94.2%
-  );
-  border: 1px solid #000000;
-  box-sizing: border-box;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  img {
-    width: 188px;
-    height: 125px;
-    margin: 4vh 7vh;
-  }
-`;
-
 export const Content = styled.div`
   background: #e7e9f0;
   width: 100%;
+  min-height: 100vh;
   .polls-container {
     padding: 0 4vh;
     position: absolute;
@@ -102,16 +83,6 @@ export const Content = styled.div`
     border-bottom: 0.4px solid #ffffff;
     padding-bottom: 10px;
     margin-bottom: 20px;
-  }
-  .pollContent {
-    display: flex;
-    padding-top: 4vh;
-    margin: 0 7vh;
-    position: absolute;
-    top: 24vh;
-    background: transparent;
-    border-top: 1px solid #0097bb;
-    width: 150vh;
   }
   .sideContent {
     margin-left: 8vh;
@@ -217,62 +188,6 @@ export const Content = styled.div`
     margin: 0 25px 20px 25px;
     border-bottom: 0.4px solid #0097bb;
   }
-  .pollContainer {
-    background: #ffffff;
-    border-radius: 22px;
-    width: 520px;
-    .success {
-      font-family: Montserrat;
-      font-weight: bold;
-      font-size: 16px;
-      color: #0097bb;
-      text-align: center;
-      padding: 40px 0;
-    }
-    .voteBtn {
-      text-align: center;
-      padding: 40px 0;
-    }
-    button {
-      width: 153px;
-      height: 37px;
-      background: #0097bb;
-      border-radius: 18.5px;
-      border: none;
-      font-family: Montserrat;
-      text-transform: uppercase;
-      font-weight: bold;
-      font-size: 16px;
-      line-height: 20px;
-      color: #ffffff;
-    }
-    .form-check {
-      padding: 20px 35px;
-      label {
-        font-family: Roboto;
-        font-style: normal;
-        font-weight: bold;
-        font-size: 16px;
-        line-height: 0;
-        color: #109ebf;
-      }
-    }
-    .form-check-input {
-      width: 26.87px;
-      height: 26.87px;
-      color: #0097bb;
-      border: 1px solid #0097bb;
-      border-radius: 1px;
-      margin-right: 20px;
-    }
-  }
-  .img {
-    background: rgba(0, 0, 0, 0.6);
-    width: 520px;
-    height: 191px;
-    mix-blend-mode: hard-light;
-    border-radius: 20px 20px 0px 0px;
-  }
   .pollTitle {
     font-family: Montserrat;
     font-style: normal;
@@ -289,7 +204,7 @@ export const Content = styled.div`
 
 export const Container = styled.div`
   display: flex;
-  height: 120vh;
+  min-height: 100vh;
 `;
 
 export const Poll = styled.div`

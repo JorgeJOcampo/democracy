@@ -4,6 +4,7 @@ import { isBrowser } from 'react-device-detect';
 import Results from 'components/Results';
 import { useParams } from 'react-router-dom';
 import { usePoll } from './hooks';
+import { Container, PollContainer } from './styles';
 
 export default () => {
   const { id } = useParams();
@@ -29,30 +30,17 @@ export default () => {
   }
 
   return (
-    <div className="pollContent">
-      {isBrowser ? (
-        <div className="pollContainer">
-          <div className="img" />
-          <div className="pollTitle">{pollName}</div>
-          <VoteList options={options} maxSelectable={maxSelectable} />
-          <div className="voteBtn">
-            <button type="button" onClick={submit} disabled={voted}>
-              Votar!
-            </button>
-          </div>
+    <Container>
+      <PollContainer>
+        {isBrowser && <div className="img" />}
+        <div className="pollTitle">{pollName}</div>
+        <VoteList options={options} maxSelectable={maxSelectable} />
+        <div className="voteBtn">
+          <button type="button" onClick={submit} disabled={voted}>
+            Votar!
+          </button>
         </div>
-      ) : (
-        <div className="pollContainer">
-          <div className="img" />
-          <div className="pollTitle">{pollName}</div>
-          <VoteList options={options} maxSelectable={maxSelectable} />
-          <div className="voteBtn">
-            <button type="button" onClick={submit} disabled={voted}>
-              Votar!
-            </button>
-          </div>
-        </div>
-      )}
+      </PollContainer>
 
       {isBrowser && (
         <div className="sideContent">
@@ -100,6 +88,6 @@ export default () => {
           </div>
         </div>
       )}
-    </div>
+    </Container>
   );
 };
