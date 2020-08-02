@@ -65,11 +65,10 @@ export const BottomText = styled.p`
 
 export const Content = styled.div`
   background: #e7e9f0;
-  width: 100%;
   min-height: 100vh;
+  width: 100%;
   .polls-container {
     padding: 0 4vh;
-    position: absolute;
     left: 0vh;
     top: 25vh;
     width: 31vh;
@@ -90,7 +89,6 @@ export const Content = styled.div`
   .cardsContainer {
     background: #ffffff;
     border-radius: 22px;
-    width: 520px;
     margin-bottom: 3vh;
     .content {
       display: flex;
@@ -123,41 +121,13 @@ export const Content = styled.div`
       background: #0097bb;
       border-radius: 1px;
       transform: rotate(19.92deg);
+      margin-right: 4vh;
     }
   }
-  .resultsContainer {
-    background: #ffffff;
-    border-radius: 22px;
-    width: 520px;
-    margin-bottom: 3vh;
-    padding-bottom: 2vh;
-    .result {
-      display: flex;
-    }
-    .name {
-      width: 110px;
-      font-family: Montserrat;
-      font-weight: 600;
-      font-size: 10px;
-      line-height: 2vh;
-      color: #0097bb;
-      border-right: 1px solid #0097bb;
-      padding-left: 45px;
-      padding-bottom: 10px;
-    }
-    .progress {
-      width: 219px;
-      margin-left: 10px;
-      margin-top: 1vh;
-      height: 7px;
-      background: linear-gradient(90.54deg, #3da9c4 0.01%, #2b2a7a 100.93%),
-        #126297;
-    }
-  }
+
   .infoContainer {
     background: #ffffff;
     border-radius: 22px;
-    width: 520px;
     padding: 20px 0;
     div {
       padding: 10px 35px;

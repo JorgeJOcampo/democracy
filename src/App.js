@@ -15,8 +15,8 @@ export default function App() {
         <Router>
           <Sidebar />
           <Content>
-            <Routes />
             <UserInfo />
+            <Routes />
           </Content>
         </Router>
       </RecoilRoot>

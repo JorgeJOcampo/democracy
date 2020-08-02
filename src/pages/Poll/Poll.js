@@ -16,12 +16,11 @@ export default () => {
 
   if (loading) {
     return (
-      <div className="pollContent">
+      <PollContainer>
         <div className="pollContainer">
-          <div className="img" />
           <div className="success">Loading...</div>
         </div>
-      </div>
+      </PollContainer>
     );
   }
 
@@ -32,7 +31,7 @@ export default () => {
   return (
     <Container>
       <PollContainer>
-        {isBrowser && <div className="img" />}
+        {/* {isBrowser && <div className="img" />} */}
         <div className="pollTitle">{pollName}</div>
         <VoteList options={options} maxSelectable={maxSelectable} />
         <div className="voteBtn">
@@ -58,19 +57,7 @@ export default () => {
               </div>
             </div>
           </div>
-          <div className="resultsContainer">
-            <h1>Resultados</h1>
-            <div className="resultsList">
-              <div className="result">
-                <div className="name">asd</div>
-                <div className="progress" />
-              </div>
-              <div className="result">
-                <div className="name">sddd</div>
-                <div className="progress" />
-              </div>
-            </div>
-          </div>
+          <Results id={id} />
           <div className="infoContainer">
             <h1>Info</h1>
             <div>

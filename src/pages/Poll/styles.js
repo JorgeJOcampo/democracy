@@ -4,7 +4,6 @@ import { isBrowser, isMobile } from 'react-device-detect';
 export const Container = styled.div`
   display: flex;
   background: transparent;
-  height: 100%;
   ${isBrowser &&
   `margin: 0 7vh;
     padding-top: 4vh;

@@ -3,9 +3,9 @@ import styled from 'styled-components';
 export const UserInfo = styled.div`
   display: flex;
   background: #e4eef4;
-  height: 60%;
   border-bottom-right-radius: 500px;
   justify-content: flex-end;
+  padding-bottom: 24px;
   div {
     margin-top: 5vh;
     margin-right: 4vh;
