@@ -1,7 +1,7 @@
 import React from 'react';
 import VoteList from 'components/VoteList';
 import { isBrowser } from 'react-device-detect';
-import Results from 'pages/Results';
+import Results from 'components/Results';
 import { useParams } from 'react-router-dom';
 import { usePoll } from './hooks';
 
