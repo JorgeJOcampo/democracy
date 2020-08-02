@@ -10,13 +10,13 @@ import { BrowserRouter as Router } from 'react-router-dom';
 export default function App() {
   return isBrowser ? (
     <RecoilRoot>
-      <Header />
-      <Content>
-        <Router>
+      <Router>
+        <Header />
+        <Content>
           <Routes />
           <UserInfo />
-        </Router>
-      </Content>
+        </Content>
+      </Router>
     </RecoilRoot>
   ) : (
     <RecoilRoot>
