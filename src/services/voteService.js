@@ -24,9 +24,10 @@ export default {
   formatOptions: (options) =>
     options.map(({ id, text }) => ({ id, label: text, total: 0 })),
   createVote: (vote) => database.collection('votes').add(vote),
-  getVotes: () =>
+  getVotes: (id) =>
     database
       .collection('votes')
+      .where('poll_id', '==', id)
       .get()
       .then((snapshot) => snapshot.docs.map((doc) => doc.data()))
       .catch((err) => {

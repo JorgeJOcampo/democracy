@@ -30,6 +30,11 @@ export const usePoll = () => {
       setMaxSelectable(poll.max_selectable);
       setLoading(false);
     });
+    voteService
+      .getVotes(id)
+      .then((result) =>
+        setVoted(result.some((vote) => vote.user.id === user.uid))
+      );
   }, [id]);
 
   return [{ options, voted, pollName, maxSelectable, loading }, submit];
