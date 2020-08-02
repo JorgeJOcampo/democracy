@@ -57,7 +57,7 @@ export default () => {
               </div>
             </div>
           </div>
-          <Results id={id} />
+          {/* <Results id={id} hide /> */}
           <div className="infoContainer">
             <h1>Info</h1>
             <div>
