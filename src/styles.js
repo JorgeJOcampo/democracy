@@ -67,22 +67,6 @@ export const Content = styled.div`
   background: #e7e9f0;
   min-height: 100vh;
   width: 100%;
-  .polls-container {
-    padding: 0 4vh;
-    left: 0vh;
-    top: 25vh;
-    width: 31vh;
-  }
-  .title {
-    font-family: Roboto;
-    font-weight: bold;
-    font-size: 14px;
-    line-height: 16px;
-    color: #ffffff;
-    border-bottom: 0.4px solid #ffffff;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-  }
   .sideContent {
     margin-left: 8vh;
   }

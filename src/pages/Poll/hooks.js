@@ -35,7 +35,7 @@ export const usePoll = () => {
       .then((result) =>
         setVoted(result.some((vote) => vote.user.id === user.uid))
       );
-  }, [id]);
+  }, [id, user.uid]);
 
   return [{ options, voted, pollName, maxSelectable, loading }, submit];
 };
